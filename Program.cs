@@ -24,9 +24,34 @@ namespace Assignment_C__Advanced_2
         {
             return list.Where(n => n % 2 == 0).ToList();
         }
+        public static int FirstNONRepeatedCharacter(string s)
+        {
+            Dictionary<char, (int count, int index)> charDict = new Dictionary<char, (int, int)>();
+            for (int i = 0; i < s.Length; i++) 
+            {
+                char c = s[i];
+                if (charDict.ContainsKey(c))
+                {
+                    charDict[c] = (charDict[c].count + 1, charDict[c].index);
+                }
+                else
+                {
+                    charDict[c] = (1, i);
+                }
+            }
+            foreach (var x in charDict)
+            {
+                if (x.Value.count == 1)
+                {
+                    return x.Value.index;
+                }
+            }
+            return -1;
 
+        }
         public static void Main()
         {
+            #region Part_2
             #region Q1
             /*ArrayList list = new ArrayList { 1, 2, 3, 4, 5 };
                 ReverseArrayList(list);
@@ -48,31 +73,38 @@ namespace Assignment_C__Advanced_2
             #endregion
 
             #region Q3
-/*            FixedSizeList<int> list = new FixedSizeList<int>(5);
+            /*            FixedSizeList<int> list = new FixedSizeList<int>(5);
 
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
-            try
-            {
-                list.Add(6);
+                        list.Add(1);
+                        list.Add(2);
+                        list.Add(3);
+                        list.Add(4);
+                        list.Add(5);
+                        try
+                        {
+                            list.Add(6);
 
-            }
-            catch(Exception e)
-            { 
-                Console.WriteLine(e.Message);
-            }
-            try
-            {
-                Console.WriteLine(list.Get(2));
-                Console.WriteLine(list.Get(8));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }*/
+                        }
+                        catch(Exception e)
+                        { 
+                            Console.WriteLine(e.Message);
+                        }
+                        try
+                        {
+                            Console.WriteLine(list.Get(2));
+                            Console.WriteLine(list.Get(8));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }*/
+            #endregion
+
+            #region Q4
+            /*string str = "yousseffe"; // y = 0
+                int index = FirstNONRepeatedCharacter(str);
+                Console.WriteLine(index);*/
+            #endregion 
             #endregion
         }
     }
