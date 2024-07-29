@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assignment_C__Advanced_2.FixedSizeList;
+using System.Collections;
 
 namespace Assignment_C__Advanced_2
 {
@@ -43,9 +44,36 @@ namespace Assignment_C__Advanced_2
                 foreach (int i in Evens)
                 {
                     Console.Write(i + " "); ;
-                }*/ 
+                }*/
             #endregion
 
+            #region Q3
+/*            FixedSizeList<int> list = new FixedSizeList<int>(5);
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            try
+            {
+                list.Add(6);
+
+            }
+            catch(Exception e)
+            { 
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                Console.WriteLine(list.Get(2));
+                Console.WriteLine(list.Get(8));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }*/
+            #endregion
         }
     }
 }
